@@ -49,33 +49,12 @@ namespace TestProject
         {
             var lsg = new LiebnizSequenceGenerator();
             double actual = 0;
-            double expected = lsg.SumOfTerms(10); // got to find this number...Should be approaching Pi/4
+            double expected = lsg.SumOfTerms(10); // got to find this number...
             for (var i = 0; i < 10; ++i)
             {
                 actual += lsg.GenerateNthTerm(i);
             }
             Assert.Equal(expected, actual); // Check if the results of manually adding sequence values and calling SumOfTerms
-        }
-        [Fact]
-        public void CheckValueOfFifthTerm()
-        {
-            var lsg = new LiebnizSequenceGenerator();
-            Assert.Equal(Convert.ToDouble(1)/Convert.ToDouble(9), lsg.GenerateNthTerm(4)); // Check if the 5th term = + 1/9 
-        }
-        [Fact]
-        public void CheckApproachingPiDividedByFour()
-        {
-            var lsg = new LiebnizSequenceGenerator();
-            double actual = 0;
-            double last = Math.PI;
-            double expected = lsg.SumOfTerms(100); // got to find this number...Should be approaching Pi/4
-            for (var i = 0; i < 100; ++i)
-            {
-                actual += lsg.GenerateNthTerm(i); 
-                // as more values in the sequence are summed the total should be closer to PI/4.... (90 degrees) or i SquareRoot of -1
-                Assert.True(Math.Abs(actual - (Math.PI/4)) < Math.Abs(last - (Math.PI / 4)));
-                last = actual;
-            }
         }
     }
 }

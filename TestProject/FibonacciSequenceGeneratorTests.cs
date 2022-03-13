@@ -35,5 +35,53 @@ namespace TestProject
             }
 
         }
+        [Fact]
+        public void FirstThirtyTermsShouldBeAccurate()
+        {
+            var sut = new FibonacciSequenceGenerator();
+            var previousTerm = 1.0;
+            var expected = 1.0;
+            for (var i = 2; i <= 30; ++i)
+            {
+                var newTerm = sut.GenerateNthTerm(i);
+                Assert.Equal(expected, newTerm, 4);
+
+                expected = previousTerm + newTerm;
+                previousTerm = newTerm;
+            }
+
+        }
+        [Fact]
+        public void FirstThirtyTermsShouldBeAccurateFor()
+        {
+            var sut = new FibonacciSequenceGenerator();
+            var previousTerm = 1.0;
+            var expected = 1.0;
+            for (var i = 2; i <= 30; ++i)
+            {
+                var newTerm = sut.GenerateNthTermFor(i);
+                Assert.Equal(expected, newTerm, 4);
+
+                expected = previousTerm + newTerm;
+                previousTerm = newTerm;
+            }
+
+        }
+        [Fact]
+        public void FirstThirtyTermsShouldBeAccurateForLong()
+        {
+            var sut = new FibonacciSequenceGenerator();
+            var previousTerm = 1.0;
+            var expected = 1.0;
+            for (var i = 2; i <= 30; ++i)
+            {
+                var newTerm = sut.GenerateNthTermForLong(i);
+                Assert.Equal(expected, newTerm, 4);
+
+                expected = previousTerm + newTerm;
+                previousTerm = newTerm;
+            }
+
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace PrimesLib
 {
+    // 1,2,3,2x2,5,3x2,7,2x2x2,3x3,2x5,11,2x3x2,13,2x7,3x5,
     public static class Primes
     {
         public static int[] generatePrimes(int maxValue)

@@ -1,0 +1,95 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model SequenceGeneratorWeb.Models.GeneratorModel
+@{
+    ViewBag.Title = "Index";
+    //ViewBag.MyHeader = "Hello World!";
+}
+<h2>@ViewBag.MyHeader</h2>
+@*<ul>
+
+    @for (int i = 0; i < 10; i++)
+
+    {
+
+        <li>@i</li>
+
+    }
+
+</ul>
+*@
+ <div class="text-center">
+    @*<h2>The current directory: @ViewBag.LastName</h2>
+    <h3>"@Model.Load()"</h3>*@
+    
+    @using (Html.BeginForm("Index", "Generator", FormMethod.Post))
+    {
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2" align="center">Find Sequences</th>
+            </tr>
+            <tr>
+                <td>
+                Enter Staring Value:   @Html.TextBoxFor(m => m.StartingValue)
+                </td>         
+            </tr>
+            <tr>
+                <td>  
+               Sequence Algorithm:    @Html.DropDownListFor(c => c.modelID, new SelectList(  
+                  new List<Object>{   
+                       new { value = 0 , text = "Liebniz"  },  
+                       new { value = 1 , text = "Primes" },  
+                       new { value = 2 , text = "Fibonacci"},
+                       new { value = 3 , text = "Test"}  
+                    },  
+                  "value",  
+                  "text", 2))  
+                </td>  
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+                <td><input type="submit" value="Cancel" /></td>
+            </tr>
+               <tr> 
+</table>
+<table>
+            <tr>
+                <td>Sequence Value  / Sum : </td>
+                <td>
+                    Result: @ViewBag.OutputResult
+                </td>
+                <td>
+                    Sum: @ViewBag.OutputSum
+                </td>
+            </tr>
+            </table>
+<table>
+            <tr>
+           <td>
+                    Sequence: @ViewBag.OutputSequence
+                </td>
+
+        <tr/>
+        <tr>
+           <td>
+                    Took: @ViewBag.ExecutionTime
+                </td>
+
+        <tr/>
+        </table>
+    }
+    @*     <h4>The word entered: Model.FirstName</h4>
+    <ul>
+   
+    @for (int i = 0; i < @ViewBag.Ints.Length; i++)
+
+    {
+
+        <li>@ViewBag.Ints[i]</li>
+
+    }
+    
+    </ul>
+    *@
+</div>

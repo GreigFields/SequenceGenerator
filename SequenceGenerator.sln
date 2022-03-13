@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{A778815E-1C90-431B-8C18-5CB23BC38349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiebnizSequenceConsoleApp", "LiebnizSequenceConsoleApp\LiebnizSequenceConsoleApp.csproj", "{547F8C73-C57D-4E08-AFDD-C8FBF75ABA50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiebnizSequenceConsoleApp", "LiebnizSequenceConsoleApp\LiebnizSequenceConsoleApp.csproj", "{547F8C73-C57D-4E08-AFDD-C8FBF75ABA50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimesLib", "PrimesLib\PrimesLib.csproj", "{AEDFAB1E-5CBC-408A-B720-71F6F435C280}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimesLib", "PrimesLib\PrimesLib.csproj", "{AEDFAB1E-5CBC-408A-B720-71F6F435C280}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SequenceGeneratorMVCWeb", "SequenceGeneratorWeb\SequenceGeneratorMVCWeb.csproj", "{613CF65E-2E5C-457B-9394-C29AFA03FB7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{AEDFAB1E-5CBC-408A-B720-71F6F435C280}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEDFAB1E-5CBC-408A-B720-71F6F435C280}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEDFAB1E-5CBC-408A-B720-71F6F435C280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{613CF65E-2E5C-457B-9394-C29AFA03FB7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613CF65E-2E5C-457B-9394-C29AFA03FB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613CF65E-2E5C-457B-9394-C29AFA03FB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613CF65E-2E5C-457B-9394-C29AFA03FB7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

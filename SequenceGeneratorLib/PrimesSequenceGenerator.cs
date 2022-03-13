@@ -32,5 +32,21 @@ namespace SequenceGeneratorLib
             }
             return Convert.ToDouble(SumOfPrimes);
         }
+        public long[] ListOfTerms(int n)
+        {
+            int[] PrimesArray;
+            int TotalNumberOfPrimes;
+
+            if (n <= 0) throw new ArgumentOutOfRangeException(nameof(n), "Must be > 0"); // only works when n is > 0
+
+            (PrimesArray, TotalNumberOfPrimes) = Primes.findPrimeSequence(n); 
+            long[] lPrimesArray = new long[PrimesArray.Length]; 
+            for (int i = 0; i < PrimesArray.Length; i++)
+            {
+                lPrimesArray[i] = PrimesArray[i];
+            }
+
+            return lPrimesArray;
+        }
     }
 }

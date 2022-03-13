@@ -9,6 +9,7 @@ namespace SequenceGeneratorLib
     //   1 / (2n + 1) when n is even
 
     //Implement this sequence generator based on the ISequenceGenerator interface
+    // This value yould approach Pi/4
     public class LiebnizSequenceGenerator : ISequenceGenerator
     {
         public double GenerateNthTerm(int n) 
@@ -26,11 +27,22 @@ namespace SequenceGeneratorLib
         {
             double d = 0; ;
             if (n <= 0) throw new ArgumentOutOfRangeException(nameof(n), "Must be > 0");
-            for (int i =1; i<= n;i++) // Start with first legal value for n and include all values from there including n
+            for (int i =0; i< n;i++) // Start with first legal value for n and include all values from there including n
             {
                 d += GenerateNthTerm(i);
             }
             return d;
+        }
+        public double[] ListOfTerms(int n)
+        {
+
+            double[] terms = new double[n];
+            for (var i = 1; i <= n; ++i)
+            {
+                terms[i - 1] = GenerateNthTerm(i);
+            }
+
+            return terms;
         }
     }
 }

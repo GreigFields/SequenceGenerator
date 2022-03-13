@@ -50,11 +50,17 @@ namespace TestProject
             var lsg = new LiebnizSequenceGenerator();
             double actual = 0;
             double expected = lsg.SumOfTerms(10); // got to find this number...
-            for (var i = 1; i <= 10; ++i)
+            for (var i = 0; i < 10; ++i)
             {
                 actual += lsg.GenerateNthTerm(i);
             }
             Assert.Equal(expected, actual); // Check if the results of manually adding sequence values and calling SumOfTerms
+        }
+        [Fact]
+        public void CheckValueOfFifthTerm()
+        {
+            var lsg = new LiebnizSequenceGenerator();
+            Assert.Equal(Convert.ToDouble(1)/Convert.ToDouble(9), lsg.GenerateNthTerm(4)); // Check if the results of manually adding sequence values and calling SumOfTerms
         }
     }
 }

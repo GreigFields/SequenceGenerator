@@ -33,7 +33,7 @@ namespace SequenceGeneratorLib
             }
             return d;
         }
-        public double[] ListOfTerms(int n)
+        public double[] ListOfTerms(int n) // Return a list of the Terms to check that sequence is followed correctly
         {
 
             double[] terms = new double[n];

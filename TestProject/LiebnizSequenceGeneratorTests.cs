@@ -56,5 +56,20 @@ namespace TestProject
             }
             Assert.Equal(expected, actual); // Check if the results of manually adding sequence values and calling SumOfTerms
         }
+        [Fact]
+        public void CheckSumApproachesPiDividedByFour() // Check to see that the sequence approaches Pi/4 as n increases
+        {
+            var lsg = new LiebnizSequenceGenerator();
+            double actual = 0;
+            double expected = Math.PI/4;
+            double last = 0;
+            for (var i = 0; i < 100; ++i)
+            {
+                actual += lsg.GenerateNthTerm(i);
+                Assert.True(Math.Abs(actual - expected) < Math.Abs(last - expected)); // every increase in the numbers
+                                                                                      // in the sequence should get closer to Pi/4
+                last = actual;
+            }
+        }
     }
 }

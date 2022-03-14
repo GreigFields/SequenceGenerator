@@ -22,11 +22,13 @@ namespace SequenceGeneratorWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
         [HttpPost]
-        public IActionResult Index(GeneratorModel P)
+        public IActionResult Index(string value, GeneratorModel P)
         {
             
             // This Action method is somewhat like a Factory using the model name and attaching the correct method to the interface 
+            
             if(Status== 1)
             {
                 Status = 0;
@@ -56,7 +58,7 @@ namespace SequenceGeneratorWeb.Controllers
                         
                         ViewBag.OutputSequence += s + " 1/" + (1 / Math.Abs(dsequencevalues[i])).ToString("0");
                     }
-                    ViewBag.OutputSequence += " Sum Should Approach Pi/4 = " + (Math.PI / 4).ToString("0.000");
+                    ViewBag.OutputSequence += " Sum Should Approach Pi/4 = " + (Math.PI / 4).ToString("0.000000");
                     break;
 
                 case "1": // Primes Sequence
@@ -71,13 +73,13 @@ namespace SequenceGeneratorWeb.Controllers
                     sequencevalues = fsg.ListOfTerms(Convert.ToInt32(InputValue)); // Added List of Terms (Should be in a factory)
                     break;
                 
-                case "3": // Performance Test
+                case "3": // Fibonacci Performance Test
                     FibonacciSequenceGenerator ffsg = new FibonacciSequenceGenerator();
                     sequenceGenerator = ffsg;
                     sequencevalues = ffsg.ListOfTermsForLong(Convert.ToInt32(InputValue));// Added List of Terms (Should be in a factory)
                     dtStart = DateTime.Now;
-                    ViewBag.OutputResult = ffsg.GenerateNthTermForLong(Convert.ToInt32(InputValue));
-                    ViewBag.OutputSum = ffsg.SumOfTermsForLong(Convert.ToInt32(InputValue));
+                    ViewBag.OutputResult = ffsg.GenerateNthTermForLong(Convert.ToInt32(InputValue)).ToString("0.000000");
+                    ViewBag.OutputSum = ffsg.SumOfTermsForLong(Convert.ToInt32(InputValue)).ToString("0.000000");
                     DateTime dtEnd = DateTime.Now;
                     ts = dtEnd.Subtract(dtStart);
                     break;
@@ -89,9 +91,9 @@ namespace SequenceGeneratorWeb.Controllers
             
             if (mod != "3") // Special Case for Performance testing needed to do the timing and other methods in the case 3 switch code
             {
-                 dtStart = DateTime.Now;
-                ViewBag.OutputResult = sequenceGenerator.GenerateNthTerm(Convert.ToInt32(InputValue)); // Note Interface can be used for all sequences except the test
-                ViewBag.OutputSum = sequenceGenerator.SumOfTerms(Convert.ToInt32(InputValue));
+                dtStart = DateTime.Now;
+                ViewBag.OutputResult = sequenceGenerator.GenerateNthTerm(Convert.ToInt32(InputValue)).ToString("0.000000"); // Note Interface can be used for all sequences except the test
+                ViewBag.OutputSum = sequenceGenerator.SumOfTerms(Convert.ToInt32(InputValue)).ToString("0.000000");
                 DateTime dtEnd = DateTime.Now;
                 ts = dtEnd.Subtract(dtStart);
             }

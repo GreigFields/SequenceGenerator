@@ -12,6 +12,14 @@ namespace SequenceGeneratorLib
 
             return GenerateNthTerm(n - 1) + GenerateNthTerm(n - 2); // Nice recursion but uses too much time pushing and popping the stack
         }
+        public long GenerateNthTermLong(int n)
+        {
+            if (n < 0) throw new ArgumentOutOfRangeException(nameof(n), "Must be >= 0");
+            if (n == 0) return 0;
+            if (n == 1) return 1;
+
+            return GenerateNthTermLong(n - 1) + GenerateNthTermLong(n - 2); // Nice recursion but uses too much time pushing and popping the stack
+        }
         public double GenerateNthTermFor(int n)
         {
             if (n < 0) throw new ArgumentOutOfRangeException(nameof(n), "Must be >= 0");
@@ -41,6 +49,16 @@ namespace SequenceGeneratorLib
                 prev = hold;
             }
             return Convert.ToDouble(curr);
+        }
+        public double SumOfTermsLong(int n)
+        {
+            long result = 0;
+            for (var i = 1; i <= n; ++i)
+            {
+                result += GenerateNthTermLong(i);
+            }
+
+            return result;
         }
         public double SumOfTermsFor(int n)
         {

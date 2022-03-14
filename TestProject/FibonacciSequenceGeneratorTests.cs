@@ -68,6 +68,22 @@ namespace TestProject
 
         }
         [Fact]
+        public void FirstThirtyTermsShouldBeAccurateLong()
+        {
+            var sut = new FibonacciSequenceGenerator();
+            long previousTerm = 1;
+            long expected = 1;
+            for (var i = 2; i <= 30; ++i)
+            {
+                long newTerm = sut.GenerateNthTermLong(i);
+                Assert.Equal(expected, newTerm);
+
+                expected = previousTerm + newTerm;
+                previousTerm = newTerm;
+            }
+
+        }
+        [Fact]
         public void FirstThirtyTermsShouldBeAccurateForLong()
         {
             var sut = new FibonacciSequenceGenerator();
